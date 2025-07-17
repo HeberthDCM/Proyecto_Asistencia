@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Lateral Simple</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Contenedor del menú lateral */
+        .sidebar {
+            width: 80px;
+            height: 100vh;
+            background-color: #2c3e50;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        /* Efecto translúcido cuando no hay hover */
+        .sidebar:not(:hover) {
+            opacity: 0.5;
+        }
+
+        /* Imágenes del menú */
+        .menu-img {
+            width: 50px;
+            height: 50px;
+            margin: 15px 0;
+            cursor: pointer;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.2s;
+        }
+
+        .menu-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Contenido principal */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        /* Estilo para la página activa (opcional) */
+        .active-page {
+            border: 2px solid #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <!-- Imágenes del menú con enlaces -->
+        <a href="pagina1.html"><img src="https://via.placeholder.com/50/3498db/ffffff?text=1" class="menu-img" alt="Página 1"></a>
+        <a href="pagina2.html"><img src="https://via.placeholder.com/50/2ecc71/ffffff?text=2" class="menu-img" alt="Página 2"></a>
+        <a href="pagina3.html"><img src="https://via.placeholder.com/50/e74c3c/ffffff?text=3" class="menu-img" alt="Página 3"></a>
+        <a href="pagina4.html"><img src="https://via.placeholder.com/50/f39c12/ffffff?text=4" class="menu-img" alt="Página 4"></a>
+        <a href="pagina5.html"><img src="https://via.placeholder.com/50/9b59b6/ffffff?text=5" class="menu-img" alt="Página 5"></a>
+    </div>
+
+    <div class="main-content">
+        <h1>Contenido Principal</h1>
+        <p>Selecciona una opción del menú lateral para cargar una página diferente.</p>
+        <!-- El contenido se actualizará al hacer clic en las imágenes -->
+    </div>
+
+    <script>
+        // Opcional: Destacar la imagen activa (si estás usando SPA)
+        document.querySelectorAll('.menu-img').forEach(img => {
+            img.addEventListener('click', function() {
+                // Remover clase active de todas las imágenes
+                document.querySelectorAll('.menu-img').forEach(i => {
+                    i.classList.remove('active-page');
+                });
+                // Agregar clase active a la imagen clickeada
+                this.classList.add('active-page');
+            });
+        });
+    </script>
+</body>
+</html>
