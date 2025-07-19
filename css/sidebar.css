@@ -7,9 +7,11 @@
     --color-boton-texto: rgb(255,255,255);
     --color-menu-hover: rgb(238,238,238);
     --color-menu-hover-texto: rgb(0,0,0);
-    --color-linea:rgb(241,241,241);
+    --color-linea:rgb(0,0,0);
     --color-base: rgb(201,202,206);
-    --color-switch-circulo:rgb(241,241,241)
+    --color-switch-circulo:rgb(241,241,241);
+    --color-scroll:rgb(192,192,192);
+    --color-scroll-hover:rgb(134,134,134);
 }
 .dark-mode{
     --color-barra-lateral: rgb(44,45,49);
@@ -21,7 +23,9 @@
     --color-menu-hover-texto: rgb(238,238,238);
     --color-linea:rgb(71,70,78);
     --color-base: rgb(39,205,64);
-    --color-switch-circulo:rgb(255,255,255)
+    --color-switch-circulo:rgb(255,255,255);
+    --color-scroll:rgb(68,69,74);
+    --color-scroll-hover:rgb(85,85,85);
 }
 
 *{
@@ -41,8 +45,33 @@ body{
     background-color: darkcyan;
 }
 
+/*  menu   */
+.menu{
+    border: 2px solid red;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+    right: 15px;
+    top: 15px;
+}
+
+
+
+
+/* barra lateral*/
 .barra-lateral{
     border: 0px solid chartreuse;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 270px;
     height: 100%;
     overflow: hidden;
@@ -52,12 +81,18 @@ body{
     ;
 }
 
+/* .barra-lateral > div:nth-child(1), */
+/* .barra-lateral > nav:nth-child(2), */
+/* .barra-lateral > div:nth-child(3){ */
+    /* border: 2px dotted crimson; */
+/* }  */
+
 .mini-barra-lateral{
     width: 80px;
 }
 
 .barra-lateral .nombre-pagina{
-    border: 0px solid rebeccapurple; 
+    border: 0px solid blue; 
     width: 100%;
     height: 45px;
     margin-bottom: 40px;
@@ -67,11 +102,21 @@ body{
 }
 
 .barra-lateral .nombre-pagina ion-icon{
-    border: 0px solid slateblue;
+    border: 2px solid red;
     min-width: 50px;
     font-size: 40px;
     cursor: pointer;
 }
+.barra-lateral .nombre-pagina img{
+    border: 0px solid slateblue;
+    min-width: 40px;
+    max-height: 40px;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+
+
 .barra-lateral .nombre-pagina span{
     border: 0px solid black;
     font-size: 25px;
@@ -118,6 +163,25 @@ body{
 }
 
 /* menu de navegacion*/
+.barra-lateral .navegacion{
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+ .barra-lateral .navegacion::-webkit-scrollbar{
+    width: 5px;
+}
+.barra-lateral .navegacion::-webkit-scrollbar-thumb{
+    background-color: var(--color-scroll);
+    border-radius: 5PX;
+
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar-thumb:hover{
+    background-color: var(--color-scroll-hover);
+}
+
+
 .barra-lateral .navegacion li{
     border: 0px dotted greenyellow;
     list-style: none;
@@ -153,6 +217,7 @@ body{
     background-color: var(--color-linea);
     width: 100%;
     height: 1px;
+    margin-top: 15px;
 }
 
 /*modo oscuro*/
@@ -248,4 +313,28 @@ body{
 
 .mini-barra-lateral .usuario ion-icon{
     font-size: 20px;
+}
+
+
+/* media responsive*/
+@media (max-height: 500px){
+    .barra-lateral .nombre-pagina{
+        margin-bottom: 5px;
+    }
+    .barra-lateral .modo-oscuro{
+        margin-bottom: 3px;
+    }
+}
+
+@media (max-width: 600px){
+    .barra-lateral{
+        position: absolute;
+        left: -350px;
+    }
+    .max-barra-lateral{
+        left: 0;
+    }
+    .menu{
+        display: flex;
+    }
 }
