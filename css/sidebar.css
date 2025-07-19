@@ -61,6 +61,7 @@ body{
     color: var(--color-boton-texto);
     right: 15px;
     top: 15px;
+    z-index: 100 ;
 }
 
 
@@ -69,6 +70,7 @@ body{
 /* barra lateral*/
 .barra-lateral{
     border: 0px solid chartreuse;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -77,8 +79,8 @@ body{
     overflow: hidden;
     padding: 20px 15px;
     background-color: var(--color-barra-lateral);
-    transition: width 0.5s ease, background-color 0.3s ease;
-    ;
+    transition: width 0.5s ease, background-color 0.3s ease, left 0.5s ease;
+    z-index: 50;
 }
 
 /* .barra-lateral > div:nth-child(1), */
@@ -316,6 +318,23 @@ body{
 }
 
 
+/* MAIN*/
+#inbox{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+
+
+main{
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.5s ease;
+}
+main.min-main{
+    margin-left: 80px;
+    padding: 20px;
+}
+
 /* media responsive*/
 @media (max-height: 500px){
     .barra-lateral .nombre-pagina{
@@ -328,7 +347,7 @@ body{
 
 @media (max-width: 600px){
     .barra-lateral{
-        position: absolute;
+        position: fixed;
         left: -350px;
     }
     .max-barra-lateral{
@@ -336,5 +355,14 @@ body{
     }
     .menu{
         display: flex;
+    }
+    .menu ion-icon:nth-child(2){
+        display: none;
+    }
+    main{
+        margin-left: 0;
+    }
+    main.min-main{
+        margin-left: 0;
     }
 }
