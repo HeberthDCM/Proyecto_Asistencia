@@ -11,7 +11,8 @@
     --color-base: rgb(201,202,206);
     --color-switch-circulo:rgb(241,241,241);
     --color-scroll:rgb(192,192,192);
-    --color-scroll-hover:rgb(134,134,134);
+    --color-scroll-hover:rgb(255,214,10);
+    --color-scroll-hover-text:rgb(0,0,0);
 }
 .dark-mode{
     --color-barra-lateral: rgb(44,45,49);
@@ -22,10 +23,11 @@
     --color-menu-hover: rgb(0,0,0);
     --color-menu-hover-texto: rgb(238,238,238);
     --color-linea:rgb(71,70,78);
-    --color-base: rgb(39,205,64);
+    --color-base: rgb(255,214,10);
     --color-switch-circulo:rgb(255,255,255);
     --color-scroll:rgb(68,69,74);
-    --color-scroll-hover:rgb(85,85,85);
+    --color-scroll-hover:rgb(255,214,10);
+    --color-scroll-hover-text:rgb(0,0,0);
 }
 
 *{
@@ -42,12 +44,12 @@ body{
     border: 0px solid red;
     height: 100vh;
     width: 100%;
-    background-color: darkcyan;
+    background-color: var(--color-barra-lateral);
 }
 
 /*  menu   */
 .menu{
-    border: 2px solid red;
+    border: 0px solid red;
     position: fixed;
     width: 50px;
     height: 50px;
@@ -81,6 +83,7 @@ body{
     background-color: var(--color-barra-lateral);
     transition: width 0.5s ease, background-color 0.3s ease, left 0.5s ease;
     z-index: 50;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1);
 }
 
 /* .barra-lateral > div:nth-child(1), */
@@ -104,11 +107,20 @@ body{
 }
 
 .barra-lateral .nombre-pagina ion-icon{
-    border: 2px solid red;
+    border: px solid red;
     min-width: 50px;
     font-size: 40px;
     cursor: pointer;
 }
+
+.barra-lateral .nombre-pagina i{
+    border: px solid red;
+    min-width: 50px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
 .barra-lateral .nombre-pagina img{
     border: 0px solid slateblue;
     min-width: 40px;
@@ -142,6 +154,7 @@ body{
     background-color: var(--color-boton);
     color: var(--color-boton-texto);
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .barra-lateral .boton ion-icon{
@@ -149,6 +162,14 @@ body{
     min-width: 50px;
     font-size: 25px;
 }
+
+.barra-lateral .boton i{
+    border: 0px solid red;
+    min-width: 50px;
+    font-size: 25px;
+}
+
+
 
 .barra-lateral span{
     border: 0px solid blue;
@@ -204,14 +225,23 @@ body{
 }
 
 .barra-lateral .navegacion a:hover{
-    background-color: var(--color-menu-hover);
-    color: var(--color-menu-hover-texto);
+    /* background-color: var(--color-menu-hover); */
+    background-color: var(--color-scroll-hover);
+    color: var(--color-scroll-hover-texto);
 }
 
 .barra-lateral .navegacion ion-icon{
     min-width: 50px;
     font-size: 20px;
 }
+
+.barra-lateral .navegacion i{
+    padding-left: 15px;
+    min-width: 50px;
+    font-size: 20px;
+}
+
+
 
 
 /*linea*/
@@ -244,6 +274,13 @@ body{
     width: 50px;
     font-size: 20px;
 }
+.barra-lateral .modo-oscuro i{
+    border: 2px solid blue;
+    width: 50px;
+    font-size: 20px;
+}
+
+
 .barra-lateral .modo-oscuro .switch{
     border: 0px solid green;
     display: flex;
@@ -317,6 +354,11 @@ body{
     font-size: 20px;
 }
 
+.mini-barra-lateral .usuario i{
+    font-size: 20px;
+    padding-left: 100px;
+}
+
 
 /* MAIN*/
 #inbox{
@@ -324,9 +366,8 @@ body{
     color: var(--color-menu-hover-texto);
 }
 
-
 main{
-    margin-left: 250px;
+    margin-left: 260px;
     padding: 20px;
     transition: margin-left 0.5s ease;
 }
@@ -334,6 +375,19 @@ main.min-main{
     margin-left: 80px;
     padding: 20px;
 }
+
+.main .nombre-main{
+    border: 2px solid blue; 
+    width: 100%;
+    height: 45px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    color: rgb(39,205,64);
+}
+
+
+
 
 /* media responsive*/
 @media (max-height: 500px){
@@ -348,7 +402,7 @@ main.min-main{
 @media (max-width: 600px){
     .barra-lateral{
         position: fixed;
-        left: -350px;
+        left: -265px;
     }
     .max-barra-lateral{
         left: 0;
@@ -359,6 +413,17 @@ main.min-main{
     .menu ion-icon:nth-child(2){
         display: none;
     }
+    .menu ion-icon:nth-child(2){
+        display: none;
+    }
+
+    .menu i:nth-child(2){
+       display: none;
+   }
+   .menu i:nth-child(2){
+       display: none;
+   }
+
     main{
         margin-left: 0;
     }
